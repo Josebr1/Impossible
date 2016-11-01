@@ -33,6 +33,7 @@ public class Impossible extends SurfaceView implements Runnable{
     private int enemyX, enemyY, enemyRadius = 50;
     private double distance;
     private boolean gameOver;
+    private int score;
     private static final String TAG = "Game";
 
 
@@ -66,6 +67,9 @@ public class Impossible extends SurfaceView implements Runnable{
                 stopGame(canvas);
                 break;
             }
+
+            // Atualiza o placar
+            drawScore(canvas);
 
             // Atualiza e libera o canvas
             holder.unlockCanvasAndPost(canvas);
@@ -116,4 +120,16 @@ public class Impossible extends SurfaceView implements Runnable{
         canvas.drawText("GAME OVER!", 50, 150, paint);
     }
 
+    // Método de Pontos
+    public void addScore(int points){
+        score += points;
+    }
+
+    // Atualizamos o campo na tela com o valor do placar
+    private void drawScore(Canvas canvas){
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.WHITE);
+        paint.setTextSize(50);
+        canvas.drawText(String.valueOf(score), 50, 200, paint);
+    }
 }

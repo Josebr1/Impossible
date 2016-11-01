@@ -41,6 +41,7 @@ public class Game extends AppCompatActivity implements View.OnTouchListener{
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         view.moveDown(10);
+        view.addScore(100);
         return true;
     }
 }
