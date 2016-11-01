@@ -60,7 +60,7 @@ public class Impossible extends SurfaceView implements Runnable{
             drawEnemy(canvas);
 
             // Detecta colisão
-            checkCollission(canvas);
+            checkCollision(canvas);
 
             if(gameOver){
                 stopGame(canvas);
@@ -98,9 +98,10 @@ public class Impossible extends SurfaceView implements Runnable{
     }
 
     // Método que verifica a colisão
-    private void checkCollission(Canvas canvas){
+    private void checkCollision(Canvas canvas){
         // Calcula a hipotenusa
         distance = Math.pow(playerY - enemyY, 2) + Math.pow(playerX - enemyX, 2);
+        distance = Math.sqrt(distance);
 
         // Verifica distancia entre os raios
         if(distance <= playerRadius + enemyRadius){
