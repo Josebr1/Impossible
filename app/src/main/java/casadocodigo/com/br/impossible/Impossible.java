@@ -50,6 +50,7 @@ public class Impossible extends SurfaceView implements Runnable{
 
             // Bloqueia o canvas
             Canvas canvas = holder.lockCanvas();
+            canvas.drawColor(Color.BLACK);
 
             // Desnha o player
             drawPlayer(canvas);
