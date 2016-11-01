@@ -1,13 +1,9 @@
 package casadocodigo.com.br.impossible;
 
-import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
-import android.view.SurfaceHolder;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 public class Game extends AppCompatActivity implements View.OnTouchListener{
 

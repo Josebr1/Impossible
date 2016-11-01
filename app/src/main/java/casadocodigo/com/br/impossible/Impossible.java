@@ -1,14 +1,13 @@
 package casadocodigo.com.br.impossible;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 
 /**
  * Created by jose on 31/10/2016.
@@ -54,7 +53,8 @@ public class Impossible extends SurfaceView implements Runnable{
 
             // Bloqueia o canvas
             Canvas canvas = holder.lockCanvas();
-            canvas.drawColor(Color.BLACK);
+            //canvas.drawColor(Color.BLACK);
+            canvas.drawBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sky), 0, 0, null);
 
             // Desnha o player e o inimigo
             drawPlayer(canvas);
@@ -89,12 +89,14 @@ public class Impossible extends SurfaceView implements Runnable{
     // Método para desenhar o player
     private void drawPlayer(Canvas canvas){
         paint.setColor(Color.GREEN);
-        canvas.drawCircle(playerX, playerY, 50, paint);
+        canvas.drawBitmap(BitmapFactory.decodeResource(getResources(),
+                R.drawable.nave), playerX-50, playerY-50, null);
+        //canvas.drawCircle(playerX, playerY, 50, paint);
     }
 
     // Método que desenha o inimigo
     private void drawEnemy(Canvas canvas){
-        paint.setColor(Color.GRAY);
+        paint.setColor(Color.RED);
         enemyRadius++;
         canvas.drawCircle(enemyX, enemyY, enemyRadius, paint);
     }
