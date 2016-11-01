@@ -1,6 +1,7 @@
 package casadocodigo.com.br.impossible;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.SurfaceView;
 
 /**
@@ -14,12 +15,26 @@ import android.view.SurfaceView;
 
 public class Impossible extends SurfaceView implements Runnable {
 
+    private boolean running = false;
+    private Thread renderThread = null;
+    private static final String TAG = "Game";
+
+
     public Impossible(Context context) {
         super(context);
     }
 
     @Override
     public void run() {
+        while(running){
+            Log.i(TAG, "Impossible Running...!");
+        }
 
+    }
+
+    public void resume(){
+        running = true;
+        renderThread = new Thread(this);
+        renderThread.start();
     }
 }

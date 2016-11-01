@@ -18,10 +18,16 @@ public class Game extends AppCompatActivity {
         // Configura view
         setContentView(view);
 
-        /* Usar a tela cheia do aparelho */
+       /* /* Usar a tela cheia do aparelho
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        view.resume();
     }
 }
