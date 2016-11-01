@@ -7,10 +7,17 @@ import android.view.WindowManager;
 
 public class Game extends AppCompatActivity {
 
+    Impossible view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        // Lógica do jogo
+        view = new Impossible(this);
+
+        // Configura view
+        setContentView(view);
+
         /* Usar a tela cheia do aparelho */
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(
