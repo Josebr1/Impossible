@@ -30,6 +30,7 @@ public class Impossible extends SurfaceView implements Runnable{
     private SurfaceHolder holder;
     private Paint paint;
     private int playerY = 300;
+    private float enemyRadius;
     private static final String TAG = "Game";
 
 
@@ -52,8 +53,9 @@ public class Impossible extends SurfaceView implements Runnable{
             Canvas canvas = holder.lockCanvas();
             canvas.drawColor(Color.BLACK);
 
-            // Desnha o player
+            // Desnha o player e o inimigo
             drawPlayer(canvas);
+            drawEnemy(canvas);
 
             // Atualiza e libera o canvas
             holder.unlockCanvasAndPost(canvas);
@@ -71,6 +73,13 @@ public class Impossible extends SurfaceView implements Runnable{
     private void drawPlayer(Canvas canvas){
         paint.setColor(Color.GREEN);
         canvas.drawCircle(300, playerY, 50, paint);
+    }
+
+    // Método que desenha o inimigo
+    private void drawEnemy(Canvas canvas){
+        paint.setColor(Color.GRAY);
+        enemyRadius++;
+        canvas.drawCircle(100, 100, enemyRadius, paint);
     }
 
     // Método para mover o player para baixo
